@@ -1,0 +1,255 @@
+{
+  "experienceTimeline": [
+    {
+      "id": "sofomo-website",
+      "company": "Sofomo",
+      "project": "Sofomo Website",
+      "visibility": "public",
+      "url": "https://www.sofomo.com/",
+      "location": "Poland / International",
+      "startDate": "2022-03",
+      "endDate": "2023-01",
+      "role": "Front-end Developer",
+      "shortDescription": "Development of the company's public-facing website using Next.js.",
+      "longDescription": "Actively involved in building and maintaining the Sofomo company website. The project focused on delivering a performant, modern front-end using Next.js, with attention to SEO, responsiveness, and maintainability in a production environment.",
+      "technologies": ["Next.js", "React", "TypeScript", "HTML", "CSS Modules"],
+      "projectImage": "/images/projects/Sofomo.svg",
+      "projectLogo": "/images/projects/Sofomo.svg",
+      "isPersonal": false,
+      "showcaseOrder": 4
+    },
+    {
+      "id": "triplepoint-qa",
+      "company": "TriplePoint",
+      "project": "Salesforce QA Automation",
+      "visibility": "internal",
+      "url": null,
+      "location": "International",
+      "startDate": "2023-01",
+      "endDate": "2023-08",
+      "role": "QA Engineer",
+      "shortDescription": "Automated testing of an internal Salesforce-based application using Selenium.",
+      "longDescription": "Worked as a QA Engineer on an internal Salesforce-based application. The project focused on automated testing using Selenium, CI setup with Jenkins, and maintaining QA workflows. Also contributed to a small internal Next.js application supporting QA and testing processes.",
+      "technologies": ["Selenium", "Java", "Salesforce", "Jenkins", "Next.js", "Automated Testing", "QA Processes"],
+      "projectImage": "/images/projects/triple-point-logo.png",
+      "projectLogo": "/images/projects/triple-point-logo.png",
+      "isPersonal": false,
+      "showcaseOrder": 6
+    },
+    {
+      "id": "flexcare-netsuite-vue",
+      "company": "FlexCare",
+      "project": "NetSuite CRM Front-end Application",
+      "visibility": "internal",
+      "url": null,
+      "location": "United States",
+      "startDate": "2023-08",
+      "endDate": "2024-06",
+      "role": "Lead Front-end Developer",
+      "shortDescription": "Lead front-end development of an internal Vue application integrated with NetSuite CRM.",
+      "longDescription": "Led front-end development of an internal Vue-based application integrated with NetSuite CRM for a medical services company. The application extended NetSuite functionality through a custom user interface and supported internal business workflows.",
+      "technologies": ["Vue.js", "JavaScript", "NetSuite", "CRM Integrations", "HTML", "CSS Modules"],
+      "projectImage": "/images/projects/FlexCare-logo.png",
+      "projectLogo": "/images/projects/FlexCare-logo.png",
+      "isPersonal": false,
+      "showcaseOrder": 5
+    },
+    {
+      "id": "proprio-netsuite-react-vue",
+      "company": "Proprio",
+      "project": "NetSuite Enhancements Platform",
+      "visibility": "internal",
+      "url": null,
+      "location": "International",
+      "startDate": "2024-06",
+      "endDate": "present",
+      "role": "Front-end Developer",
+      "shortDescription": "Development of internal React and Vue front-end modules integrated with NetSuite.",
+      "longDescription": "Working on a long-term internal project focused on building external front-end modules using React and Vue, integrated and hosted within NetSuite. The work involves extending existing NetSuite functionality, coordinating front-end code with SuiteScript, and implementing automated UI testing.",
+      "technologies": [
+        "React",
+        "Vue.js",
+        "TypeScript",
+        "JavaScript",
+        "NetSuite",
+        "SuiteScript",
+        "Playwright",
+        "Front-end Integrations"
+      ],
+      "projectImage": "",
+      "projectLogo": "",
+      "isPersonal": false,
+      "showcaseOrder": 3
+    },
+    {
+      "id": "iqair-shopify-migration",
+      "company": "IQAir",
+      "project": "Shopify Website Migration",
+      "visibility": "public",
+      "url": "https://www.iqair.com/",
+      "location": "United States",
+      "startDate": "2025-01",
+      "endDate": "2025-02",
+      "role": "Front-end Developer",
+      "shortDescription": "Migration of a public-facing e-commerce website to React using Hydrogen and Remix.",
+      "longDescription": "Participated in the migration of a public-facing e-commerce website from Angular to a modern React-based stack using Shopify Hydrogen and Remix. The project included Shopify API integration and translation of Liquid templates into React components within a headless commerce architecture.",
+      "technologies": ["React", "Shopify Hydrogen", "Remix", "Shopify API", "Liquid", "Headless Commerce"],
+      "projectImage": "/images/projects/IQAir_logo.svg.png",
+      "projectLogo": "/images/projects/IQAir_logo.svg.png",
+      "isPersonal": false,
+      "showcaseOrder": 1
+    },
+    {
+      "id": "octopus-learning-platform",
+      "company": "Octopus",
+      "project": "English Learning Platform UI",
+      "visibility": "public",
+      "url": "https://www.octopus.study/ux/start",
+      "location": "International",
+      "startDate": "2024-06",
+      "endDate": "2025-03",
+      "role": "Lead Front-end Developer",
+      "shortDescription": "Lead front-end development of a Next.js-based learning platform user interface.",
+      "longDescription": "One of the lead front-end developers responsible for building and maintaining the user interface of an English language learning platform. The work focused on scalable UI architecture, performance optimization, and delivering a consistent user experience using Next.js.",
+      "technologies": ["Next.js", "React", "TypeScript", "HTML", "CSS Modules", "Performance Optimization"],
+      "projectImage": "/images/projects/octopus-logo.svg",
+      "projectLogo": "/images/projects/octopus-logo.svg",
+      "isPersonal": false,
+      "showcaseOrder": 2
+    },
+    {
+      "id": "personal-portfolio",
+      "company": "Personal Project",
+      "project": "Developer Portfolio",
+      "visibility": "public",
+      "url": null,
+      "location": "Poland",
+      "startDate": "2025-01",
+      "endDate": "present",
+      "role": "Full Stack Developer",
+      "shortDescription": "Personal portfolio website showcasing projects and skills with modern animations.",
+      "longDescription": "A personal portfolio website built from scratch using Next.js, TypeScript, and Framer Motion. Features include animated orbital tech icons, interactive timeline, smooth scroll animations, and a responsive design with a custom color scheme.",
+      "technologies": ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+      "projectImage": "/images/projects/portfolio-bg.jpg",
+      "projectLogo": null,
+      "isPersonal": true,
+      "showcaseOrder": 7
+    },
+    {
+      "id": "personal-placeholder",
+      "company": "Personal Project",
+      "project": "Coming Soon",
+      "visibility": "public",
+      "url": null,
+      "location": "Poland",
+      "startDate": "2025-01",
+      "endDate": "present",
+      "role": "Developer",
+      "shortDescription": "A new personal project currently in development. Details coming soon.",
+      "longDescription": "This is a placeholder for an upcoming personal project. Replace this with your actual project details when ready.",
+      "technologies": ["React", "TypeScript"],
+      "projectImage": "/images/projects/placeholder-bg.jpg",
+      "projectLogo": null,
+      "isPersonal": true,
+      "showcaseOrder": 8
+    }
+  ],
+  "about": {
+    "intro": "Front-end Developer with 4+ years of commercial experience, specializing in React, TypeScript, and Next.js. Working primarily on e-commerce platforms and enterprise integrations for international clients.",
+    "previousCareer": {
+      "title": "12+ Years in Hospitality Management",
+      "description": "Before transitioning to tech, I built a successful career in the hotel industry spanning over 12 years. I held senior management positions where I was responsible for leading teams, managing operations, and delivering exceptional guest experiences at international properties.",
+      "highlights": [
+        "Managed teams of 20+ staff members across multiple departments",
+        "Responsible for budgets, KPIs, and operational excellence",
+        "Developed strong leadership, communication, and problem-solving skills",
+        "Worked with diverse international teams and clientele"
+      ],
+      "skills": [
+        "Team Leadership",
+        "Project Management",
+        "Client Relations",
+        "Problem Solving",
+        "Cross-functional Collaboration",
+        "Stakeholder Management"
+      ]
+    },
+    "journey": {
+      "title": "My Transition into Tech",
+      "description": "After 12+ years of building a successful career in hospitality management, I discovered my passion for coding and made a deliberate career change. The analytical thinking, problem-solving abilities, and people skills I developed as a manager translate directly into my work as a developer. What started as curiosity turned into a full commitment to mastering modern web technologies.",
+      "highlights": [
+        "Leveraged management experience to excel in collaborative development teams",
+        "Made a career transition through intensive self-study and coding bootcamps",
+        "Quickly progressed from fundamentals to advanced frameworks",
+        "Now working with international clients on enterprise-level projects"
+      ]
+    },
+    "education": [
+      {
+        "type": "degree",
+        "title": "University Education",
+        "institution": "Your University Name",
+        "description": "Background in a field that developed analytical thinking and problem-solving skills",
+        "year": "Update with your graduation year"
+      },
+      {
+        "type": "bootcamp",
+        "title": "Front-end Development Bootcamp",
+        "institution": "Update with bootcamp name",
+        "description": "Intensive training in modern front-end technologies including React, JavaScript, and responsive design",
+        "year": "Update with year"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Update with your certification",
+        "issuer": "Certification provider",
+        "year": "Year"
+      }
+    ],
+    "values": [
+      {
+        "title": "Clean Code",
+        "description": "Writing maintainable, readable code that stands the test of time"
+      },
+      {
+        "title": "Continuous Learning",
+        "description": "Staying current with evolving technologies and best practices"
+      },
+      {
+        "title": "User-Centric Design",
+        "description": "Building interfaces that prioritize user experience and accessibility"
+      }
+    ]
+  },
+  "funFacts": [
+    {
+      "id": "skiing",
+      "title": "Skiing Enthusiast",
+      "description": "Hitting the slopes whenever I can. There's nothing like the thrill of carving through fresh powder in the mountains.",
+      "icon": "mountain",
+      "image": "/images/fun-facts/skiing.jpg"
+    },
+    {
+      "id": "paddleboard",
+      "title": "Stand-Up Paddleboarding",
+      "description": "Finding balance both on the water and in code. SUP is my way to disconnect and recharge during summer.",
+      "icon": "waves",
+      "image": "/images/fun-facts/paddleboard.jpg"
+    },
+    {
+      "id": "reading",
+      "title": "Avid Reader",
+      "description": "Always with a book in hand. From tech literature to fiction, reading expands my perspective and fuels creativity.",
+      "icon": "book",
+      "image": "/images/fun-facts/reading.jpg"
+    },
+    {
+      "id": "coffee",
+      "title": "Coffee Connoisseur",
+      "description": "Debugging is powered by quality coffee. Exploring different roasts and brewing methods is a daily ritual.",
+      "icon": "coffee",
+      "image": "/images/fun-facts/coffee.jpg"
+    }
+  ]
+}
