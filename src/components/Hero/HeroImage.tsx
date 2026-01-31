@@ -20,16 +20,13 @@ export function HeroImage({ src, alt }: HeroImageProps) {
         {/* Outer glow effect */}
         <GlowEffect />
 
-        {/* Pulsing ring animation */}
-        <PulsingRing />
-
         {/* Profile photo */}
-        <div className="relative w-[280px] h-[280px] sm:w-[350px] sm:h-[350px] md:w-[450px] md:h-[450px] lg:w-[540px] lg:h-[540px] rounded-full overflow-hidden ring-4 ring-white shadow-2xl">
+        <div className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] md:w-[450px] md:h-[450px] lg:w-[540px] lg:h-[540px] rounded-full overflow-hidden">
           <Image
             src={src}
             alt={alt}
             fill
-            className="object-cover"
+            className="object-cover object-top scale-150 lg:scale-110 origin-top"
             priority
           />
         </div>
@@ -45,23 +42,3 @@ function GlowEffect() {
   );
 }
 
-// Animated pulsing ring around the image
-function PulsingRing() {
-  return (
-    <motion.div
-      className="absolute -inset-10 sm:-inset-14 md:-inset-18 lg:-inset-24 rounded-full"
-      style={{
-        background: "radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, rgba(219, 39, 119, 0.15) 40%, rgba(219, 39, 119, 0.05) 60%, transparent 80%)",
-      }}
-      animate={{
-        scale: [1, 1.15, 1],
-        opacity: [0.7, 1, 0.7],
-      }}
-      transition={{
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    />
-  );
-}

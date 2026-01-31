@@ -17,7 +17,7 @@ export function Hero() {
           <HeroContent />
 
           {/* Right Column - Profile Image */}
-          <div className="flex justify-center lg:justify-end">
+          <div className="flex justify-center lg:justify-end mt-8 lg:mt-0">
             <HeroImage src="/profile.png" alt="Paulina Murzanska" />
           </div>
         </div>
