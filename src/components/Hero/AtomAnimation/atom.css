@@ -1,0 +1,239 @@
+/* ===========================================
+   Atom Animation Styles
+   CSS-based keyframe animations for smooth performance
+   =========================================== */
+
+/* CSS Variables for easy customization */
+.atom-container {
+  --atom-size: 900px;
+  --orbit-size: 700px;
+  --electron-size: 24px;
+  --orbit-color-1: rgba(124, 58, 237, 0.25);
+  --orbit-color-2: rgba(219, 39, 119, 0.25);
+  --orbit-color-3: rgba(59, 130, 246, 0.25);
+}
+
+/* ===========================================
+   Container Styles
+   =========================================== */
+
+.atom-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.atom {
+  position: relative;
+  width: var(--atom-size);
+  height: var(--atom-size);
+  transform-style: preserve-3d;
+}
+
+/* ===========================================
+   Orbit Styles
+   =========================================== */
+
+.orbit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  margin: auto;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+/* Orbit ring - animated border */
+.orbit::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1.5px solid transparent;
+}
+
+/* Individual orbit positions */
+.orbit-1 {
+  transform: rotateY(65deg) rotateX(0deg);
+}
+
+.orbit-1::before {
+  border-color: var(--orbit-color-1);
+  animation: orbitBorder 4s infinite linear;
+}
+
+.orbit-2 {
+  transform: rotateY(65deg) rotateX(-60deg);
+}
+
+.orbit-2::before {
+  border-color: var(--orbit-color-2);
+  animation: orbitBorder 5s infinite linear;
+  animation-delay: -1.5s;
+}
+
+.orbit-3 {
+  transform: rotateY(65deg) rotateX(60deg);
+}
+
+.orbit-3::before {
+  border-color: var(--orbit-color-3);
+  animation: orbitBorder 6s infinite linear;
+  animation-delay: -3s;
+}
+
+.orbit-4 {
+  transform: rotateY(65deg) rotateX(30deg);
+}
+
+.orbit-4::before {
+  border-color: var(--orbit-color-1);
+  animation: orbitBorder 4.5s infinite linear;
+  animation-delay: -2s;
+}
+
+/* ===========================================
+   Electron Styles
+   =========================================== */
+
+.electron {
+  position: absolute;
+  top: calc((var(--orbit-size) - var(--electron-size)) / 2);
+  left: 0;
+  width: var(--electron-size);
+  height: var(--electron-size);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.electron-1 {
+  animation: electronOrbit1 20s infinite linear;
+}
+
+.electron-2 {
+  animation: electronOrbit2 25s infinite linear;
+}
+
+.electron-3 {
+  animation: electronOrbit3 30s infinite linear;
+}
+
+.electron-4 {
+  animation: electronOrbit4 35s infinite linear;
+}
+
+.electron-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), 0 0 12px rgba(124, 58, 237, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform-style: preserve-3d;
+}
+
+/* ===========================================
+   Keyframe Animations
+   =========================================== */
+
+/* Orbit border - creates moving dashed effect */
+@keyframes orbitBorder {
+  0% {
+    border-top-color: var(--orbit-color-1);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  25% {
+    border-top-color: transparent;
+    border-right-color: var(--orbit-color-1);
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  50% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: var(--orbit-color-1);
+    border-left-color: transparent;
+  }
+  75% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: var(--orbit-color-1);
+  }
+  100% {
+    border-top-color: var(--orbit-color-1);
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+}
+
+/* Electron animations - rotateZ moves around, counter-rotations keep flat */
+@keyframes electronOrbit1 {
+  0% {
+    transform: rotateZ(0deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(0deg) rotateX(0deg) rotateY(-65deg);
+  }
+  100% {
+    transform: rotateZ(360deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(-360deg) rotateX(0deg) rotateY(-65deg);
+  }
+}
+
+@keyframes electronOrbit2 {
+  0% {
+    transform: rotateZ(0deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(0deg) rotateX(60deg) rotateY(-65deg);
+  }
+  100% {
+    transform: rotateZ(-360deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(360deg) rotateX(60deg) rotateY(-65deg);
+  }
+}
+
+@keyframes electronOrbit3 {
+  0% {
+    transform: rotateZ(0deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(0deg) rotateX(-60deg) rotateY(-65deg);
+  }
+  100% {
+    transform: rotateZ(360deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(-360deg) rotateX(-60deg) rotateY(-65deg);
+  }
+}
+
+@keyframes electronOrbit4 {
+  0% {
+    transform: rotateZ(0deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(0deg) rotateX(-30deg) rotateY(-65deg);
+  }
+  100% {
+    transform: rotateZ(-360deg) translateX(calc(var(--orbit-size) / 2)) rotateZ(360deg) rotateX(-30deg) rotateY(-65deg);
+  }
+}
+
+/* ===========================================
+   Responsive Styles
+   =========================================== */
+
+@media (max-width: 1024px) {
+  .atom-container {
+    --atom-size: 600px;
+    --orbit-size: 450px;
+    --electron-size: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .atom-container {
+    --atom-size: 400px;
+    --orbit-size: 300px;
+    --electron-size: 18px;
+  }
+}
