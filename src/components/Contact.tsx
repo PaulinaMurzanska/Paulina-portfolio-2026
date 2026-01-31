@@ -36,8 +36,7 @@ export function Contact() {
           </h2>
 
           <p className="text-xl text-[var(--text-secondary)] mb-12 max-w-2xl mx-auto">
-            Open to new opportunities and interesting projects.
-            Feel free to reach out!
+            Open to new opportunities and interesting projects. Feel free to reach out!
           </p>
 
           {/* Email CTA */}
@@ -81,7 +80,7 @@ export function Contact() {
               </svg>
             </motion.a>
             <motion.a
-              href="https://linkedin.com/in/paulina-murzanska"
+              href="https://www.linkedin.com/in/paulina-murza%C5%84ska-858b6544/"
               target="_blank"
               rel="noopener noreferrer"
               className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
