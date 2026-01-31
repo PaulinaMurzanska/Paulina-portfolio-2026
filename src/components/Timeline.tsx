@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState } from "react";
 import Link from "next/link";
 import experienceData from "@/data/data.json";
+import { SectionHeader } from "./atoms";
 
 interface ExperienceItem {
   id: string;
@@ -89,26 +90,13 @@ export function Timeline() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.span
-            className="inline-block px-4 py-2 rounded-full bg-[var(--accent-2)] text-[var(--text-secondary)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            My Journey
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            Career <span className="gradient-text">Timeline</span>
-          </h2>
-        </motion.div>
+        <SectionHeader
+          badge="My Journey"
+          badgeColor="accent-2"
+          title="Career"
+          gradientWord="Timeline"
+          className="mb-20"
+        />
 
         {/* Timeline */}
         <div ref={containerRef} className="relative">

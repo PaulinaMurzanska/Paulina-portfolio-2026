@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SectionHeader } from "./atoms";
 
 const skillCategories = [
   {
@@ -76,26 +77,13 @@ export function Skills() {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.span
-            className="inline-block px-4 py-2 rounded-full bg-[var(--accent-1)] text-[var(--text-secondary)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            Tech Stack
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            Skills & <span className="gradient-text">Expertise</span>
-          </h2>
-        </motion.div>
+        <SectionHeader
+          badge="Tech Stack"
+          badgeColor="accent-1"
+          title="Skills &"
+          gradientWord="Expertise"
+          className="mb-20"
+        />
 
         {/* Skills Grid */}
         <motion.div

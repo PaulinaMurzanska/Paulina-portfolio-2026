@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
 import aboutData from "@/data/data.json";
+import { SectionHeader, GradientButton } from "./atoms";
 
 const about = aboutData.about;
 
@@ -19,26 +19,13 @@ export function About() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.span
-            className="inline-block px-4 py-2 rounded-full bg-[var(--accent-4)] text-[var(--text-secondary)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            About Me
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl font-bold">
-            My <span className="gradient-text">Story</span>
-          </h2>
-        </motion.div>
+        <SectionHeader
+          badge="About Me"
+          badgeColor="accent-4"
+          title="My"
+          gradientWord="Story"
+          className="mb-12"
+        />
 
         {/* Compact Content Card */}
         <motion.div
@@ -97,23 +84,17 @@ export function About() {
             ))}
           </div>
 
-          {/* CTA */}
           <div className="text-center">
-            <motion.div
-              className="inline-block"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white font-medium hover:shadow-lg transition-all duration-300"
-              >
-                Read my full story
+            <GradientButton
+              href="/about"
+              icon={
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
-              </Link>
-            </motion.div>
+              }
+            >
+              Read my full story
+            </GradientButton>
           </div>
         </motion.div>
       </div>

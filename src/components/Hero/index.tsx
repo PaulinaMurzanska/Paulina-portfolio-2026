@@ -1,19 +1,9 @@
 "use client";
 
 import { BackgroundBlobs } from "./BackgroundBlobs";
-import { AtomAnimation } from "./AtomAnimation";
 import { HeroContent } from "./HeroContent";
 import { HeroImage } from "./HeroImage";
 
-/**
- * Hero Section Component
- *
- * The main landing section of the portfolio featuring:
- * - Animated background blobs
- * - CSS-based atom animation with orbiting tech icons
- * - Introduction text with animated elements
- * - Profile image with glow effects
- */
 export function Hero() {
   return (
     <section className="min-h-screen relative flex items-center">

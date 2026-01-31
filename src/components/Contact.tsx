@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SectionBadge } from "./atoms";
 
 export function Contact() {
   return (
@@ -28,14 +29,7 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <motion.span
-            className="inline-block px-4 py-2 rounded-full bg-[var(--accent-2)] text-[var(--text-secondary)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            Get in Touch
-          </motion.span>
+          <SectionBadge color="accent-2">Get in Touch</SectionBadge>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Let's <span className="gradient-text">Connect</span>

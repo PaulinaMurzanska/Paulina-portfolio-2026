@@ -1,3 +1,7 @@
+// Atoms
+export * from "./atoms";
+
+// Organisms (Section components)
 export { Navigation } from "./Navigation";
 export { Hero } from "./Hero";
 export { About } from "./About";

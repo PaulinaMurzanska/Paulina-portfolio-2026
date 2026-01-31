@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
 import experienceData from "@/data/data.json";
+import { SectionHeader } from "./atoms";
 
 interface ProjectItem {
   id: string;
@@ -77,29 +78,14 @@ export function Projects() {
       />
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-20"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.span
-            className="inline-block px-4 py-2 rounded-full bg-[var(--accent-3)] text-[var(--text-secondary)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            Portfolio
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            Project <span className="gradient-text">Showcase</span>
-          </h2>
-          <p className="text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
-            Explore detailed case studies of my professional and personal projects
-          </p>
-        </motion.div>
+        <SectionHeader
+          badge="Portfolio"
+          badgeColor="accent-3"
+          title="Project"
+          gradientWord="Showcase"
+          subtitle="Explore detailed case studies of my professional and personal projects"
+          className="mb-20"
+        />
 
         {/* Slider Container */}
         <div className="relative">

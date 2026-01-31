@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { SectionHeader } from "./atoms";
 
 // Outdoor activity images
 const outdoorImages = [
@@ -57,29 +58,13 @@ export function FunFacts() {
       </div>
 
       <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
-        {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <motion.span
-            className="inline-block px-4 py-2 rounded-full bg-[var(--accent-1)] text-[var(--text-secondary)] text-sm font-medium mb-4"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-          >
-            Beyond the Code
-          </motion.span>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-            Free <span className="gradient-text">Time</span>
-          </h2>
-          <p className="text-[var(--text-secondary)] mt-4 max-w-2xl mx-auto">
-            When I'm not coding, you can find me enjoying the outdoors
-          </p>
-        </motion.div>
+        <SectionHeader
+          badge="Beyond the Code"
+          badgeColor="accent-1"
+          title="Free"
+          gradientWord="Time"
+          subtitle="When I'm not coding, you can find me enjoying the outdoors"
+        />
 
         {/* Outdoors Card with Image Slider */}
         <motion.div
