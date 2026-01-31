@@ -21,6 +21,10 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: "Paulina Murzanska | Front-end Developer",
   description: "Front-end Developer crafting exceptional digital experiences with React, TypeScript & Next.js",
+  icons: {
+    icon: "/favicon.svg",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({
