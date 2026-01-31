@@ -78,14 +78,28 @@ export function Navigation() {
               ))}
             </ul>
 
-            <motion.a
-              href="/#contact"
-              className="hidden md:inline-flex px-6 py-2.5 rounded-full bg-[var(--text-primary)] text-white font-medium text-sm hover:shadow-lg transition-all duration-300"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Let's Connect
-            </motion.a>
+            <div className="hidden md:flex items-center gap-3">
+              <motion.a
+                href="/paulina-murzanska-cv.pdf"
+                download="Paulina-Murzanska-CV.pdf"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full border-2 border-[#7c3aed] text-[#7c3aed] font-medium text-sm hover:bg-[#7c3aed] hover:text-white transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                </svg>
+                CV
+              </motion.a>
+              <motion.a
+                href="/#contact"
+                className="inline-flex px-6 py-2.5 rounded-full bg-[var(--text-primary)] text-white font-medium text-sm hover:shadow-lg transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Let's Connect
+              </motion.a>
+            </div>
 
             <button
               className="md:hidden p-2 z-50"
@@ -150,8 +164,19 @@ export function Navigation() {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
-                  className="px-6 py-4"
+                  className="px-6 py-4 flex flex-col gap-3"
                 >
+                  <a
+                    href="/paulina-murzanska-cv.pdf"
+                    download="Paulina-Murzanska-CV.pdf"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-3 rounded-full border-2 border-[#7c3aed] text-[#7c3aed] font-medium"
+                    onClick={handleMobileNavClick}
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                    Download CV
+                  </a>
                   <a
                     href="/#contact"
                     className="block w-full text-center px-6 py-3 rounded-full bg-gradient-to-r from-[#7c3aed] to-[#db2777] text-white font-medium"
