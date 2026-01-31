@@ -10,3 +10,6 @@ export { Skills } from "./Skills";
 export { Projects } from "./Projects";
 export { FunFacts } from "./FunFacts";
 export { Contact } from "./Contact";
+
+// Types
+export type { ProjectItem } from "@/types";

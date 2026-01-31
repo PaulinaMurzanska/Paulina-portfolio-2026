@@ -5,62 +5,15 @@ import { useRef, useState } from "react";
 import Link from "next/link";
 import experienceData from "@/data/data.json";
 import { SectionHeader } from "./atoms";
+import { ProjectItem } from "@/types";
+import { getCompanyColors } from "@/data/companyColors";
+import { formatDateRange } from "@/utils";
 
-interface ExperienceItem {
-  id: string;
-  company: string;
-  project: string;
-  visibility: string;
-  url: string | null;
-  location: string;
-  startDate: string;
-  endDate: string;
-  role: string;
-  shortDescription: string;
-  longDescription: string;
-  technologies: string[];
-  projectImage: string;
-  projectLogo: string | null;
-  isPersonal: boolean;
-  showcaseOrder: number;
-}
+const experiences: ProjectItem[] = experienceData.experienceTimeline;
 
-const experiences: ExperienceItem[] = experienceData.experienceTimeline;
-
-// Filter out personal projects and sort by start date descending (most recent first)
 const sortedExperiences = [...experiences]
   .filter((item) => !item.isPersonal)
-  .sort((a, b) => {
-    const dateA = new Date(a.startDate);
-    const dateB = new Date(b.startDate);
-    return dateB.getTime() - dateA.getTime();
-  });
-
-// Company brand colors extracted from logos
-const companyColors: Record<string, string> = {
-  Sofomo: "#1a1a1a",
-  TriplePoint: "#3b6baa",
-  FlexCare: "#7a2048",
-  Octopus: "#1AB7FC",
-  IQAir: "#d32f2f",
-  Proprio: "#6b5b95",
-  BeautyLash: "#d4af37",
-  "AS Service": "#c62828",
-};
-const defaultColor = "var(--accent-1)";
-
-function formatDateRange(startDate: string, endDate: string): string {
-  const start = new Date(startDate);
-  const startStr = start.toLocaleDateString("en-US", { month: "short", year: "numeric" });
-
-  if (endDate === "present") {
-    return `${startStr} — Present`;
-  }
-
-  const end = new Date(endDate);
-  const endStr = end.toLocaleDateString("en-US", { month: "short", year: "numeric" });
-  return `${startStr} — ${endStr}`;
-}
+  .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
 
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -108,7 +61,7 @@ export function Timeline() {
           {/* Timeline items */}
           <div className="space-y-16 md:space-y-24">
             {sortedExperiences.map((item, index) => {
-              const color = companyColors[item.company] || defaultColor;
+              const { color } = getCompanyColors(item.company);
 
               return (
                 <motion.div
@@ -309,7 +262,7 @@ export function Timeline() {
               key={item.id}
               className="w-3 h-3 rounded-full transition-all"
               style={{
-                background: activeIndex === index ? companyColors[item.company] || defaultColor : "var(--bg-secondary)",
+                background: activeIndex === index ? getCompanyColors(item.company).color : "var(--bg-secondary)",
                 transform: activeIndex === index ? "scale(1.5)" : "scale(1)",
               }}
               whileHover={{ scale: 1.5 }}
