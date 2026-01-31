@@ -231,11 +231,15 @@ export function Projects() {
                         <motion.div
                           className="absolute inset-0 rounded-3xl pointer-events-none"
                           style={{
-                            border: "2px solid transparent",
-                            borderImage: hoveredId === project.id ? gradient : "none",
-                            borderImageSlice: 1,
+                            padding: "2px",
+                            background: gradient,
+                            WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+                            WebkitMaskComposite: "xor",
+                            maskComposite: "exclude",
                           }}
-                          animate={hoveredId === project.id ? { opacity: 1 } : { opacity: 0 }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: hoveredId === project.id ? 1 : 0 }}
+                          transition={{ duration: 0.3 }}
                         />
                       </motion.div>
                     </Link>
