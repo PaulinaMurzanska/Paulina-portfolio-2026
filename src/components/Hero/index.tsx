@@ -11,7 +11,7 @@ export function Hero() {
       <BackgroundBlobs />
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 lg:px-20 py-12 md:py-20 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 lg:px-20 pt-24 pb-12 md:pt-28 md:pb-20 w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Text Content */}
           <HeroContent />
