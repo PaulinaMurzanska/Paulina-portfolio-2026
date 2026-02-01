@@ -32,7 +32,7 @@ export function SectionHeader({
       transition={{ duration: 0.6 }}
     >
       {badge && <SectionBadge color={badgeColor}>{badge}</SectionBadge>}
-      <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+      <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold">
         {title} <span className="gradient-text">{gradientWord}</span>
       </h2>
       {subtitle && (

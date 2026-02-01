@@ -36,7 +36,7 @@ export function Projects() {
   const visibleProjects = allProjects.slice(currentIndex, currentIndex + CARDS_PER_VIEW);
 
   return (
-    <section id="projects" className="py-32 relative overflow-hidden">
+    <section id="projects" className="py-32 relative overflow-hidden bg-[var(--bg-primary)]">
       <motion.div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full opacity-10"
         style={{ background: "var(--gradient-1)" }}
@@ -44,7 +44,7 @@ export function Projects() {
         transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
       />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <SectionHeader
           badge="Portfolio"
           badgeColor="accent-3"
@@ -186,7 +186,7 @@ export function Projects() {
                           </motion.div>
                         </div>
 
-                        <div className="p-8">
+                        <div className="p-5 md:p-8">
                           <div className="flex items-center gap-2 mb-2">
                             <h3
                               className="text-xl font-bold group-hover:text-transparent group-hover:bg-clip-text transition-all"
@@ -201,7 +201,7 @@ export function Projects() {
                           </div>
                           <p className="text-[var(--accent-1)] text-sm font-medium mb-1">{project.role}</p>
                           <p className="text-[var(--text-muted)] text-sm mb-3">{project.project}</p>
-                          <p className="text-[var(--text-secondary)] mb-6 leading-relaxed line-clamp-2">
+                          <p className="text-[var(--text-secondary)] mb-4 md:mb-6 leading-relaxed line-clamp-2">
                             {project.shortDescription}
                           </p>
 

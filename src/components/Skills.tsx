@@ -76,7 +76,7 @@ export function Skills() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <SectionHeader
           badge="Tech Stack"
           badgeColor="accent-1"
@@ -96,7 +96,7 @@ export function Skills() {
           {skillCategories.map((category, categoryIndex) => (
             <motion.div key={category.name} variants={itemVariants} className="group">
               <motion.div
-                className="bg-white rounded-3xl p-8 h-full shadow-lg hover:shadow-2xl transition-all relative overflow-hidden"
+                className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 h-full shadow-lg hover:shadow-2xl transition-all relative overflow-hidden"
                 whileHover={{ y: -10 }}
                 transition={{ type: "spring", stiffness: 300 }}
               >
@@ -118,7 +118,7 @@ export function Skills() {
                     <span className="text-2xl font-bold text-[var(--text-primary)]">{category.name.charAt(0)}</span>
                   </div>
 
-                  <h3 className="text-xl font-bold mb-6">{category.name}</h3>
+                  <h3 className="text-lg md:text-xl font-bold mb-4 md:mb-6">{category.name}</h3>
 
                   <ul className="space-y-3">
                     {category.skills.map((skill, skillIndex) => (

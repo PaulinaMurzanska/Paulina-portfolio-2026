@@ -21,7 +21,7 @@ export function HeroImage({ src, alt }: HeroImageProps) {
         <GlowEffect />
 
         {/* Profile photo */}
-        <div className="relative w-[320px] h-[320px] sm:w-[380px] sm:h-[380px] md:w-[450px] md:h-[450px] lg:w-[540px] lg:h-[540px] rounded-full overflow-hidden">
+        <div className="relative w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[540px] lg:h-[540px] rounded-full overflow-hidden">
           <Image
             src={src}
             alt={alt}
@@ -38,7 +38,7 @@ export function HeroImage({ src, alt }: HeroImageProps) {
 // Blurred glow behind the image
 function GlowEffect() {
   return (
-    <div className="absolute -inset-12 sm:-inset-16 md:-inset-20 lg:-inset-28 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#db2777] opacity-15 blur-3xl" />
+    <div className="absolute -inset-12 md:-inset-20 lg:-inset-28 rounded-full bg-gradient-to-br from-[#7c3aed] to-[#db2777] opacity-15 blur-3xl" />
   );
 }
 

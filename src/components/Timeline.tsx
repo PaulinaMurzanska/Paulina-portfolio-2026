@@ -27,7 +27,7 @@ export function Timeline() {
   const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
   return (
-    <section id="timeline" className="py-32 relative overflow-hidden">
+    <section id="timeline" className="py-32 relative overflow-hidden bg-[var(--bg-primary)]">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -42,7 +42,7 @@ export function Timeline() {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
+      <div className="max-w-7xl mx-auto px-4 md:px-12 lg:px-20">
         <SectionHeader
           badge="My Journey"
           badgeColor="accent-2"
@@ -83,7 +83,7 @@ export function Timeline() {
                     transition={{ type: "spring", stiffness: 300 }}
                   >
                     <div
-                      className="bg-white rounded-3xl p-8 shadow-lg hover:shadow-2xl transition-shadow relative overflow-hidden"
+                      className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-8 shadow-lg hover:shadow-2xl transition-shadow relative overflow-hidden"
                       style={{ borderTop: `4px solid ${color}` }}
                     >
                       {/* Decorative background */}
@@ -93,28 +93,30 @@ export function Timeline() {
                       />
 
                       <div className="relative z-10">
-                        {/* Date/location + logo row */}
-                        <div className="flex items-start justify-between gap-4 mb-4">
+                        {/* Logo + Date/location - stacked on mobile, row on md+ */}
+                        <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-3 md:gap-4 mb-4">
+                          {/* Logo - shown first on mobile */}
+                          {item.projectLogo && (
+                            <img
+                              src={item.projectLogo}
+                              alt={`${item.company} logo`}
+                              className="h-10 md:h-12 w-auto object-contain max-w-[100px] md:max-w-[120px] order-first md:order-last flex-shrink-0"
+                            />
+                          )}
+                          {/* Date and location */}
                           <div className="flex flex-col">
                             <span
-                              className="px-3 py-1 rounded-full text-sm font-semibold w-fit text-white"
+                              className="px-3 py-1 rounded-full text-xs md:text-sm font-semibold w-fit text-white"
                               style={{ background: color }}
                             >
                               {formatDateRange(item.startDate, item.endDate)}
                             </span>
                             <span className="text-[var(--text-muted)] text-xs mt-1 pl-1">{item.location}</span>
                           </div>
-                          {item.projectLogo && (
-                            <img
-                              src={item.projectLogo}
-                              alt={`${item.company} logo`}
-                              className="h-12 w-auto object-contain max-w-[120px] flex-shrink-0"
-                            />
-                          )}
                         </div>
 
                         {/* Company name */}
-                        <h3 className="text-2xl font-bold mb-1">{item.company}</h3>
+                        <h3 className="text-xl md:text-2xl font-bold mb-1">{item.company}</h3>
 
                         <p className="text-[var(--accent-1)] font-medium mb-2">{item.role}</p>
                         <p className="text-[var(--text-secondary)] text-sm mb-4">{item.project}</p>

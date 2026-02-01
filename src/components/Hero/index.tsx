@@ -6,12 +6,12 @@ import { HeroImage } from "./HeroImage";
 
 export function Hero() {
   return (
-    <section className="min-h-screen relative flex items-center">
+    <section className="min-h-screen relative flex items-center overflow-hidden bg-[var(--bg-primary)]">
       {/* Background Layers */}
       <BackgroundBlobs />
 
       {/* Main Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-12 lg:px-20 py-12 md:py-20 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-12 lg:px-20 py-12 md:py-20 w-full">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Column - Text Content */}
           <HeroContent />

@@ -57,7 +57,7 @@ export function FunFacts() {
         />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <SectionHeader
           badge="Beyond the Code"
           badgeColor="accent-1"
@@ -132,7 +132,7 @@ export function FunFacts() {
             </div>
 
             {/* Content */}
-            <div className="p-8 md:p-12 flex flex-col justify-center">
+            <div className="p-5 md:p-12 flex flex-col justify-center">
               <div className="flex items-center gap-3 mb-4">
                 <div
                   className="w-12 h-12 rounded-2xl flex items-center justify-center text-white text-xl"
@@ -140,10 +140,10 @@ export function FunFacts() {
                 >
                   🌲
                 </div>
-                <h3 className="text-2xl md:text-3xl font-bold">Outdoors</h3>
+                <h3 className="text-xl md:text-3xl font-bold">Outdoors</h3>
               </div>
 
-              <p className="text-[var(--text-secondary)] text-lg leading-relaxed mb-8">
+              <p className="text-[var(--text-secondary)] text-base md:text-lg leading-relaxed mb-6 md:mb-8">
                 I love spending my free time outdoors, staying active and exploring nature.
                 Whether it's hitting the slopes, cruising on wheels, or paddling on water —
                 being outside is where I recharge.

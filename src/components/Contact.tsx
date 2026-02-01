@@ -21,7 +21,7 @@ export function Contact() {
         transition={{ duration: 12, repeat: Infinity }}
       />
 
-      <div className="max-w-4xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <motion.div
           className="text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -31,11 +31,11 @@ export function Contact() {
         >
           <SectionBadge color="accent-2">Get in Touch</SectionBadge>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6">
             Let's <span className="gradient-text">Connect</span>
           </h2>
 
-          <p className="text-xl text-[var(--text-secondary)] mb-12 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-[var(--text-secondary)] mb-8 md:mb-12 max-w-2xl mx-auto">
             Open to new opportunities and interesting projects. Feel free to reach out!
           </p>
 
@@ -53,7 +53,7 @@ export function Contact() {
               viewport={{ once: true }}
             >
               <div className="absolute inset-0 bg-gradient-to-r from-[#7c3aed] to-[#db2777] rounded-2xl blur-lg opacity-50 group-hover:opacity-80 transition-opacity" />
-              <div className="relative px-12 py-6 bg-gradient-to-r from-[#7c3aed] to-[#db2777] rounded-2xl text-white font-semibold text-lg">
+              <div className="relative px-6 py-4 md:px-12 md:py-6 bg-gradient-to-r from-[#7c3aed] to-[#db2777] rounded-2xl text-white font-semibold text-sm md:text-lg">
                 p.murzanska@gmail.com
               </div>
             </motion.div>
@@ -61,7 +61,7 @@ export function Contact() {
 
           {/* Social Links */}
           <motion.div
-            className="flex justify-center gap-6 mt-12"
+            className="flex justify-center flex-wrap gap-3 md:gap-6 mt-8 md:mt-12"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ export function Contact() {
           >
             <motion.a
               href="tel:+48514132314"
-              className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -81,7 +81,7 @@ export function Contact() {
               href="https://github.com/PaulinaMurzanska"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -93,7 +93,7 @@ export function Contact() {
               href="https://www.linkedin.com/in/paulina-murza%C5%84ska-858b6544/"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-14 h-14 rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
+              className="w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-white shadow-lg flex items-center justify-center text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors"
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -104,7 +104,7 @@ export function Contact() {
             <motion.a
               href="/paulina-murzanska-cv.pdf"
               download="Paulina-Murzanska-CV.pdf"
-              className="relative group w-14 h-14 rounded-2xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] shadow-lg flex items-center justify-center text-white hover:shadow-xl transition-all"
+              className="relative group w-11 h-11 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-gradient-to-r from-[#7c3aed] to-[#db2777] shadow-lg flex items-center justify-center text-white hover:shadow-xl transition-all"
               whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(124,58,237,0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
@@ -120,7 +120,7 @@ export function Contact() {
 
           {/* Availability badge */}
           <motion.div
-            className="mt-16 inline-flex items-center gap-3 px-6 py-3 rounded-full bg-[var(--accent-4)] text-[var(--text-secondary)]"
+            className="mt-10 md:mt-16 inline-flex items-center gap-2 md:gap-3 px-4 py-2 md:px-6 md:py-3 rounded-full bg-[var(--accent-4)] text-[var(--text-secondary)] text-sm md:text-base"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}

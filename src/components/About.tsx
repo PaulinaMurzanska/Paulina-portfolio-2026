@@ -8,7 +8,7 @@ const about = aboutData.about;
 
 export function About() {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-24 relative overflow-hidden bg-[var(--bg-primary)]">
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -18,7 +18,7 @@ export function About() {
         />
       </div>
 
-      <div className="max-w-5xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
+      <div className="max-w-5xl mx-auto px-4 md:px-12 lg:px-20 relative z-10">
         <SectionHeader
           badge="About Me"
           badgeColor="accent-4"
@@ -29,13 +29,13 @@ export function About() {
 
         {/* Compact Content Card */}
         <motion.div
-          className="bg-white rounded-3xl p-8 md:p-10 shadow-lg"
+          className="bg-white rounded-2xl md:rounded-3xl p-5 md:p-10 shadow-lg"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
           {/* Intro */}
-          <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-relaxed mb-8 text-center">
+          <p className="text-base md:text-xl text-[var(--text-secondary)] leading-relaxed mb-6 md:mb-8 text-center">
             {about.intro}
           </p>
 

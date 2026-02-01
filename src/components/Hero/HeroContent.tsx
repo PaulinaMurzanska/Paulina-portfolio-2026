@@ -29,7 +29,7 @@ export function HeroContent() {
 
       {/* Main Heading */}
       <motion.h1
-        className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-6"
+        className="text-3xl md:text-5xl lg:text-7xl font-bold leading-[1.1] mb-6"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.1 }}
@@ -49,7 +49,7 @@ export function HeroContent() {
 
       {/* Description */}
       <motion.p
-        className="text-lg md:text-xl text-[var(--text-secondary)] max-w-lg mb-8 leading-relaxed"
+        className="text-base md:text-xl text-[var(--text-secondary)] max-w-lg mb-6 md:mb-8 leading-relaxed"
         initial={fadeInUp.initial}
         animate={fadeInUp.animate}
         transition={{ duration: 0.6, delay: 0.3 }}
@@ -111,7 +111,7 @@ function CallToActionButtons() {
 
   return (
     <motion.div
-      className="flex flex-wrap gap-4"
+      className="flex flex-wrap gap-3 md:gap-4"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
@@ -119,14 +119,14 @@ function CallToActionButtons() {
       <a
         href="#timeline"
         onClick={(e) => handleClick(e, "#timeline")}
-        className="px-8 py-4 rounded-full bg-[var(--text-primary)] text-white font-medium hover:scale-105 active:scale-98 hover:shadow-lg transition-all duration-300"
+        className="px-5 py-3 md:px-8 md:py-4 rounded-full bg-[var(--text-primary)] text-white font-medium text-sm md:text-base hover:scale-105 active:scale-98 hover:shadow-lg transition-all duration-300"
       >
         View My Journey
       </a>
       <a
         href="#contact"
         onClick={(e) => handleClick(e, "#contact")}
-        className="px-8 py-4 rounded-full border-2 border-[var(--text-primary)] text-[var(--text-primary)] font-medium gradient-border hover:scale-105 active:scale-98 hover:shadow-lg transition-all duration-300"
+        className="px-5 py-3 md:px-8 md:py-4 rounded-full border-2 border-[var(--text-primary)] text-[var(--text-primary)] font-medium text-sm md:text-base gradient-border hover:scale-105 active:scale-98 hover:shadow-lg transition-all duration-300"
       >
         Get in Touch
       </a>
