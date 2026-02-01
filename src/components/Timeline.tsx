@@ -13,7 +13,15 @@ const experiences: ProjectItem[] = experienceData.experienceTimeline;
 
 const sortedExperiences = [...experiences]
   .filter((item) => !item.isPersonal)
-  .sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime());
+  .sort((a, b) => {
+    // Current/present jobs come first
+    const aIsCurrent = a.endDate === "present";
+    const bIsCurrent = b.endDate === "present";
+    if (aIsCurrent && !bIsCurrent) return -1;
+    if (!aIsCurrent && bIsCurrent) return 1;
+    // Then sort by start date descending (most recent first)
+    return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+  });
 
 export function Timeline() {
   const containerRef = useRef<HTMLDivElement>(null);
