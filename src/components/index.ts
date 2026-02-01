@@ -1,6 +1,9 @@
 // Atoms
 export * from "./atoms";
 
+// Providers
+export { MotionProvider } from "./MotionProvider";
+
 // Organisms (Section components)
 export { Navigation } from "./Navigation";
 export { Hero } from "./Hero";
