@@ -1,868 +1,976 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paulina Murzanska - Front-end Developer</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    :root {
-      --purple: #7c3aed;
-      --purple-dark: #5b21b6;
-      --purple-darker: #4c1d95;
-      --pink: #db2777;
-      --dark: #1a1a2e;
-      --gray: #4a4a6a;
-      --light-gray: #9ca3af;
-      --bg: #faf8ff;
-      --white: #ffffff;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--dark);
-      line-height: 1.6;
-    }
-
-    /* Page Container */
-    .page {
-      width: 210mm;
-      height: 297mm;
-      margin: 0 auto;
-      background: var(--white);
-      display: grid;
-      grid-template-columns: 220px 1fr;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .page + .page {
-      margin-top: 20px;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      background: linear-gradient(180deg, #7c3aed 0%, #a855f7 30%, #db2777 100%);
-      color: white;
-      padding: 36px 20px;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .sidebar-page-2 {
-      background: linear-gradient(180deg, #a855f7 0%, #db2777 60%, #be185d 100%);
-      padding: 36px 20px;
-    }
-
-    /* Profile */
-    .profile {
-      text-align: center;
-      margin-bottom: 28px;
-    }
-
-    .profile-img-container {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      overflow: hidden;
-      border: 4px solid rgba(255,255,255,0.3);
-      margin: 0 auto 16px auto;
-    }
-
-    .profile-img {
-      width: 100%;
-      height: 150%;
-      object-fit: cover;
-      object-position: top center;
-    }
-
-    .profile h1 {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 4px;
-      letter-spacing: -0.5px;
-    }
-
-    .profile .title {
-      font-size: 10px;
-      font-weight: 500;
-      opacity: 0.9;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    /* Sidebar Sections */
-    .sidebar-section {
-      margin-bottom: 24px;
-    }
-
-    .sidebar-section h3 {
-      font-size: 9px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-      opacity: 0.7;
-    }
-
-    .contact-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 10px;
-    }
-
-    .contact-item a {
-      color: white;
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .contact-item a:hover {
-      opacity: 0.8;
-      text-decoration: underline;
-    }
-
-    .contact-icon {
-      width: 14px;
-      height: 14px;
-      opacity: 0.8;
-      flex-shrink: 0;
-    }
-
-    /* Skill Bars */
-    .skill-bar {
-      margin-bottom: 10px;
-    }
-
-    .skill-bar .name {
-      font-size: 10px;
-      font-weight: 500;
-      margin-bottom: 3px;
-    }
-
-    .skill-bar .bar {
-      height: 4px;
-      background: rgba(255,255,255,0.2);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-
-    .skill-bar .fill {
-      height: 100%;
-      background: linear-gradient(90deg, #f472b6, #fbbf24);
-      border-radius: 2px;
-    }
-
-    /* Languages */
-    .language-item {
-      display: flex;
-      justify-content: space-between;
-      font-size: 10px;
-      margin-bottom: 6px;
-    }
-
-    .language-item .level {
-      opacity: 0.7;
-    }
-
-    /* Sidebar Footer */
-    .sidebar-footer {
-      margin-top: auto;
-      text-align: center;
-      font-size: 9px;
-      opacity: 0.6;
-    }
-
-    /* Main Content */
-    .main {
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .main-page-2 {
-      padding: 36px 32px;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    /* Intro */
-    .intro {
-      margin-bottom: 24px;
-    }
-
-    .intro h2 {
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 8px;
-      letter-spacing: -1px;
-    }
-
-    .intro h2 span {
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .intro p {
-      font-size: 12px;
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* Highlights */
-    .highlights {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .highlight-card {
-      text-align: center;
-      padding: 14px 10px;
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(219, 39, 119, 0.08));
-      border-radius: 12px;
-    }
-
-    .highlight-card .number {
-      font-size: 22px;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .highlight-card .label {
-      font-size: 8px;
-      font-weight: 600;
-      color: var(--gray);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    /* Sections */
-    .section {
-      margin-bottom: 24px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .section-header h3 {
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: var(--purple);
-    }
-
-    .section-header .line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, var(--purple), transparent);
-      border-radius: 1px;
-    }
-
-    /* Experience Cards */
-    .experience-grid {
-      display: grid;
-      gap: 14px;
-    }
-
-    .exp-card {
-      display: grid;
-      grid-template-columns: 70px 1fr;
-      gap: 14px;
-      padding: 14px;
-      background: var(--bg);
-      border-radius: 10px;
-    }
-
-    .exp-date {
-      font-size: 9px;
-      font-weight: 600;
-      color: var(--light-gray);
-      text-align: right;
-      padding-top: 2px;
-    }
-
-    .exp-content h4 {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 2px;
-    }
-
-    .exp-content .company {
-      font-size: 11px;
-      font-weight: 600;
-      color: var(--purple);
-      margin-bottom: 4px;
-    }
-
-    .exp-content p {
-      font-size: 10px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px;
-      margin-top: 6px;
-    }
-
-    .tech-tag {
-      font-size: 8px;
-      font-weight: 600;
-      padding: 2px 7px;
-      background: white;
-      color: var(--purple);
-      border-radius: 8px;
-      border: 1px solid rgba(124, 58, 237, 0.2);
-    }
-
-    /* Education */
-    .edu-grid {
-      display: grid;
-      gap: 12px;
-    }
-
-    .edu-card {
-      padding: 14px;
-      background: var(--bg);
-      border-radius: 10px;
-      border-left: 3px solid var(--purple);
-    }
-
-    .edu-card h4 {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--dark);
-      margin-bottom: 2px;
-    }
-
-    .edu-card .school {
-      font-size: 10px;
-      color: var(--purple);
-      margin-bottom: 2px;
-    }
-
-    .edu-card .year {
-      font-size: 9px;
-      color: var(--light-gray);
-      margin-bottom: 4px;
-    }
-
-    .edu-card .description {
-      font-size: 9px;
-      color: var(--gray);
-      line-height: 1.5;
-    }
-
-    /* Additional Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 8px;
-    }
-
-    .skill-item {
-      font-size: 10px;
-      padding: 8px 12px;
-      background: var(--bg);
-      border-radius: 8px;
-      color: var(--gray);
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .skill-item::before {
-      content: '';
-      width: 6px;
-      height: 6px;
-      background: linear-gradient(135deg, var(--purple), var(--pink));
-      border-radius: 50%;
-    }
-
-    /* Soft Skills */
-    .soft-skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .soft-skill-tag {
-      font-size: 10px;
-      padding: 6px 14px;
-      background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(219, 39, 119, 0.1));
-      border-radius: 20px;
-      color: var(--purple);
-      font-weight: 500;
-    }
-
-    /* RODO Clause */
-    .rodo-clause {
-      font-size: 7px;
-      color: var(--light-gray);
-      text-align: center;
-      padding: 16px 20px;
-      line-height: 1.6;
-      border-top: 1px solid rgba(124, 58, 237, 0.1);
-      margin-top: auto;
-    }
-
-    /* Print Styles */
-    @media print {
-      body {
-        background: white;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      .page {
-        box-shadow: none;
-        width: 100%;
-        height: 297mm;
-        page-break-after: always;
-        break-after: page;
-        page-break-inside: avoid;
-      }
-
-      .page:last-of-type {
-        page-break-after: avoid;
-        break-after: avoid;
-      }
-
-      .sidebar, .sidebar-page-2 {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-      }
-
-      @page {
-        size: A4;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paulina Murzanska - Front-end Developer</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap");
+
+      * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
-    }
 
-    /* Hidden ATS Content */
-    .ats-content {
-      position: absolute;
-      left: -9999px;
-      top: -9999px;
-      width: 1px;
-      height: 1px;
-      overflow: hidden;
-      font-size: 1px;
-      color: transparent;
-    }
+      :root {
+        --purple: #7c3aed;
+        --purple-dark: #5b21b6;
+        --purple-darker: #4c1d95;
+        --pink: #db2777;
+        --dark: #1a1a2e;
+        --gray: #4a4a6a;
+        --light-gray: #9ca3af;
+        --bg: #faf8ff;
+        --white: #ffffff;
+      }
 
-    @media print {
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--bg);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      /* Page Container */
+      .page {
+        width: 210mm;
+        height: 297mm;
+        margin: 0 auto;
+        background: var(--white);
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .page + .page {
+        margin-top: 20px;
+      }
+
+      /* Sidebar */
+      .sidebar {
+        background: linear-gradient(180deg, #7c3aed 0%, #a855f7 30%, #db2777 100%);
+        color: white;
+        padding: 36px 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      .sidebar-page-2 {
+        background: linear-gradient(180deg, #a855f7 0%, #db2777 60%, #be185d 100%);
+        padding: 36px 20px;
+      }
+
+      /* Profile */
+      .profile {
+        text-align: center;
+        margin-bottom: 28px;
+      }
+
+      .profile-img-container {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        margin: 0 auto 16px auto;
+      }
+
+      .profile-img {
+        width: 100%;
+        height: 150%;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      .profile h1 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 4px;
+        letter-spacing: -0.5px;
+      }
+
+      .profile .title {
+        font-size: 10px;
+        font-weight: 500;
+        opacity: 0.9;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      /* Sidebar Sections */
+      .sidebar-section {
+        margin-bottom: 24px;
+      }
+
+      .sidebar-section h3 {
+        font-size: 9px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+        opacity: 0.7;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 8px;
+        font-size: 10px;
+      }
+
+      .contact-item a {
+        color: white;
+        text-decoration: none;
+        transition: opacity 0.2s;
+      }
+
+      .contact-item a:hover {
+        opacity: 0.8;
+        text-decoration: underline;
+      }
+
+      .contact-icon {
+        width: 14px;
+        height: 14px;
+        opacity: 0.8;
+        flex-shrink: 0;
+      }
+
+      /* Skill Bars */
+      .skill-bar {
+        margin-bottom: 10px;
+      }
+
+      .skill-bar .name {
+        font-size: 10px;
+        font-weight: 500;
+        margin-bottom: 3px;
+      }
+
+      .skill-bar .bar {
+        height: 4px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .skill-bar .fill {
+        height: 100%;
+        background: linear-gradient(90deg, #f472b6, #fbbf24);
+        border-radius: 2px;
+      }
+
+      /* Languages */
+      .language-item {
+        display: flex;
+        justify-content: space-between;
+        font-size: 10px;
+        margin-bottom: 6px;
+      }
+
+      .language-item .level {
+        opacity: 0.7;
+      }
+
+      /* Sidebar Footer */
+      .sidebar-footer {
+        margin-top: auto;
+        text-align: center;
+        font-size: 9px;
+        opacity: 0.6;
+      }
+
+      /* Main Content */
+      .main {
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .main-page-2 {
+        padding: 36px 32px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+
+      /* Intro */
+      .intro {
+        margin-bottom: 24px;
+      }
+
+      .intro h2 {
+        font-size: 26px;
+        font-weight: 800;
+        color: var(--dark);
+        margin-bottom: 8px;
+        letter-spacing: -1px;
+      }
+
+      .intro h2 span {
+        background: linear-gradient(135deg, var(--purple), var(--pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .intro p {
+        font-size: 12px;
+        color: var(--gray);
+        line-height: 1.7;
+      }
+
+      /* Highlights */
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 28px;
+      }
+
+      .highlight-card {
+        text-align: center;
+        padding: 14px 10px;
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(219, 39, 119, 0.08));
+        border-radius: 12px;
+      }
+
+      .highlight-card .number {
+        font-size: 22px;
+        font-weight: 800;
+        background: linear-gradient(135deg, var(--purple), var(--pink));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .highlight-card .label {
+        font-size: 8px;
+        font-weight: 600;
+        color: var(--gray);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+
+      /* Sections */
+      .section {
+        margin-bottom: 24px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .section-header h3 {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        color: var(--purple);
+      }
+
+      .section-header .line {
+        flex: 1;
+        height: 2px;
+        background: linear-gradient(90deg, var(--purple), transparent);
+        border-radius: 1px;
+      }
+
+      /* Experience Cards */
+      .experience-grid {
+        display: grid;
+        gap: 14px;
+      }
+
+      .exp-card {
+        display: grid;
+        grid-template-columns: 70px 1fr;
+        gap: 14px;
+        padding: 14px;
+        background: var(--bg);
+        border-radius: 10px;
+      }
+
+      .exp-date {
+        font-size: 9px;
+        font-weight: 600;
+        color: var(--light-gray);
+        text-align: right;
+        padding-top: 2px;
+      }
+
+      .exp-content h4 {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 2px;
+      }
+
+      .exp-content .company {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--purple);
+        margin-bottom: 4px;
+      }
+
+      .exp-content p {
+        font-size: 10px;
+        color: var(--gray);
+        line-height: 1.5;
+      }
+
+      .tech-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px;
+        margin-top: 6px;
+      }
+
+      .tech-tag {
+        font-size: 8px;
+        font-weight: 600;
+        padding: 2px 7px;
+        background: white;
+        color: var(--purple);
+        border-radius: 8px;
+        border: 1px solid rgba(124, 58, 237, 0.2);
+      }
+
+      /* Education */
+      .edu-grid {
+        display: grid;
+        gap: 12px;
+      }
+
+      .edu-card {
+        padding: 14px;
+        background: var(--bg);
+        border-radius: 10px;
+        border-left: 3px solid var(--purple);
+      }
+
+      .edu-card h4 {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--dark);
+        margin-bottom: 2px;
+      }
+
+      .edu-card .school {
+        font-size: 10px;
+        color: var(--purple);
+        margin-bottom: 2px;
+      }
+
+      .edu-card .year {
+        font-size: 9px;
+        color: var(--light-gray);
+        margin-bottom: 4px;
+      }
+
+      .edu-card .description {
+        font-size: 9px;
+        color: var(--gray);
+        line-height: 1.5;
+      }
+
+      /* Additional Skills */
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .skill-item {
+        font-size: 10px;
+        padding: 8px 12px;
+        background: var(--bg);
+        border-radius: 8px;
+        color: var(--gray);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .skill-item::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        background: linear-gradient(135deg, var(--purple), var(--pink));
+        border-radius: 50%;
+      }
+
+      /* Soft Skills */
+      .soft-skills-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .soft-skill-tag {
+        font-size: 10px;
+        padding: 6px 14px;
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(219, 39, 119, 0.1));
+        border-radius: 20px;
+        color: var(--purple);
+        font-weight: 500;
+      }
+
+      /* RODO Clause */
+      .rodo-clause {
+        font-size: 7px;
+        color: var(--light-gray);
+        text-align: center;
+        padding: 16px 20px;
+        line-height: 1.6;
+        border-top: 1px solid rgba(124, 58, 237, 0.1);
+        margin-top: auto;
+      }
+
+      /* Print Styles */
+      @media print {
+        body {
+          background: white;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        .page {
+          box-shadow: none;
+          width: 100%;
+          height: 297mm;
+          page-break-after: always;
+          break-after: page;
+          page-break-inside: avoid;
+        }
+
+        .page:last-of-type {
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+
+        .sidebar,
+        .sidebar-page-2 {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        @page {
+          size: A4;
+          margin: 0;
+        }
+      }
+
+      /* Hidden ATS Content */
       .ats-content {
-        display: none !important;
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        font-size: 1px;
+        color: transparent;
       }
-    }
-  </style>
-</head>
-<body>
-  <!-- PAGE 1 -->
-  <div class="page">
-    <aside class="sidebar">
-      <div class="profile">
-        <div class="profile-img-container">
-          <img src="../public/profile.png" alt="Paulina Murzanska" class="profile-img" />
-        </div>
-        <h1>Paulina Murzanska</h1>
-        <p class="title">Front-end Developer</p>
-      </div>
 
-      <div class="sidebar-section">
-        <h3>Contact</h3>
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-          <a href="mailto:p.murzanska@gmail.com">p.murzanska@gmail.com</a>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z" clip-rule="evenodd"/></svg>
-          <a href="https://paulina-murzanska.dev" target="_blank">paulina-murzanska.dev</a>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/></svg>
-          <a href="tel:+48514132314">+48 514 132 314</a>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/></svg>
-          <span>Kraków, Poland</span>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd"/></svg>
-          <a href="https://linkedin.com/in/paulina-murzanska" target="_blank">LinkedIn</a>
-        </div>
-        <div class="contact-item">
-          <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd"/></svg>
-          <a href="https://github.com/PaulinaMurzanska" target="_blank">GitHub</a>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
-        <h3>Core Skills</h3>
-        <div class="skill-bar">
-          <div class="name"><span>React / Next.js</span></div>
-          <div class="bar"><div class="fill" style="width: 95%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>TypeScript</span></div>
-          <div class="bar"><div class="fill" style="width: 90%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>JavaScript (ES6+)</span></div>
-          <div class="bar"><div class="fill" style="width: 95%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>Tailwind CSS</span></div>
-          <div class="bar"><div class="fill" style="width: 92%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>Vue.js</span></div>
-          <div class="bar"><div class="fill" style="width: 75%"></div></div>
-        </div>
-      </div>
-
-      <div class="sidebar-section">
-        <h3>Languages</h3>
-        <div class="language-item">
-          <span>Polish</span>
-          <span class="level">Native</span>
-        </div>
-        <div class="language-item">
-          <span>English</span>
-          <span class="level">Fluent (C1)</span>
-        </div>
-      </div>
-
-      <div class="sidebar-footer">
-        Available: Remote / Kraków<br>
-        Full-time & Part-time
-      </div>
-    </aside>
-
-    <main class="main">
-      <div class="intro">
-        <h2>Hello, I'm <span>Paulina</span></h2>
-        <p>Front-end Developer with 4+ years crafting modern web experiences. I specialize in React ecosystems, from headless e-commerce to enterprise applications. <strong style="color: var(--purple);">AI-augmented development enthusiast</strong> — I leverage cutting-edge AI tools to accelerate workflows and deliver higher quality code faster.</p>
-      </div>
-
-      <div class="highlights">
-        <div class="highlight-card">
-          <div class="number">4+</div>
-          <div class="label">Years Experience</div>
-        </div>
-        <div class="highlight-card">
-          <div class="number">8</div>
-          <div class="label">Projects Delivered</div>
-        </div>
-        <div class="highlight-card">
-          <div class="number">6</div>
-          <div class="label">Companies</div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-header">
-          <h3>Experience</h3>
-          <div class="line"></div>
-        </div>
-        <div class="experience-grid">
-          <div class="exp-card">
-            <div class="exp-date">2024-now</div>
-            <div class="exp-content">
-              <h4>Front-end Developer</h4>
-              <div class="company">Proprio — Enterprise ERP Extensions</div>
-              <p>Building React & Vue modules extending NetSuite ERP functionality. Complex state management with Redux, SuiteScript integration.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">Redux</span>
-                <span class="tech-tag">NetSuite</span>
-              </div>
-            </div>
+      @media print {
+        .ats-content {
+          display: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PAGE 1 -->
+    <div class="page">
+      <aside class="sidebar">
+        <div class="profile">
+          <div class="profile-img-container">
+            <img src="../public/profile.png" alt="Paulina Murzanska" class="profile-img" />
           </div>
+          <h1>Paulina Murzanska</h1>
+          <p class="title">Front-end Developer</p>
+        </div>
 
-          <div class="exp-card">
-            <div class="exp-date">2025-26</div>
-            <div class="exp-content">
-              <h4>Front-end Developer</h4>
-              <div class="company">IQAir — Headless E-commerce</div>
-              <p>Built headless Shopify storefront with Remix & Hydrogen. Implemented reusable React components, Shopify API integrations, and comprehensive unit testing.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Remix</span>
-                <span class="tech-tag">Hydrogen</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Tailwind</span>
-              </div>
-            </div>
+        <div class="sidebar-section">
+          <h3>Contact</h3>
+          <div class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+            </svg>
+            <a href="mailto:p.murzanska@gmail.com">p.murzanska@gmail.com</a>
           </div>
-
-          <div class="exp-card">
-            <div class="exp-date">2024-25</div>
-            <div class="exp-content">
-              <h4>Lead Front-end Developer</h4>
-              <div class="company">Octopus — UX/UI Learning Platform</div>
-              <p>Led front-end architecture for education platform. Built scalable component systems, improved performance, and mentored team members through code reviews.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Tailwind</span>
-                <span class="tech-tag">A11y</span>
-              </div>
-            </div>
+          <div class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.56-.5-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.56.5.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.498-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.03 11H4.083a6.004 6.004 0 002.783 4.118z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <a href="https://paulina-frontend.vercel.app/" target="_blank">paulina-frontend.vercel.app</a>
           </div>
-
-          <div class="exp-card">
-            <div class="exp-date">2023-24</div>
-            <div class="exp-content">
-              <h4>Lead Front-end Developer</h4>
-              <div class="company">FlexCare — Healthcare CRM</div>
-              <p>Developed Vue.js modules for time tracking and CRM workflows deployed within NetSuite for US healthcare staffing company.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">NetSuite</span>
-                <span class="tech-tag">CRM</span>
-              </div>
-            </div>
+          <div class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+              />
+            </svg>
+            <a href="tel:+48514132314">+48 514 132 314</a>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <span>Kraków, Poland</span>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <a href="https://linkedin.com/in/paulina-murzanska" target="_blank">LinkedIn</a>
+          </div>
+          <div class="contact-item">
+            <svg class="contact-icon" fill="currentColor" viewBox="0 0 20 20">
+              <path
+                fill-rule="evenodd"
+                d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"
+                clip-rule="evenodd"
+              />
+            </svg>
+            <a href="https://github.com/PaulinaMurzanska" target="_blank">GitHub</a>
           </div>
         </div>
-      </div>
-    </main>
-  </div>
 
-  <!-- PAGE 2 -->
-  <div class="page">
-    <aside class="sidebar sidebar-page-2">
-      <div class="sidebar-section">
-        <h3>Tools & Platforms</h3>
-        <div class="skill-bar">
-          <div class="name"><span>Git / GitHub</span></div>
-          <div class="bar"><div class="fill" style="width: 90%"></div></div>
+        <div class="sidebar-section">
+          <h3>Core Skills</h3>
+          <div class="skill-bar">
+            <div class="name"><span>React / Next.js</span></div>
+            <div class="bar"><div class="fill" style="width: 95%"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="name"><span>TypeScript</span></div>
+            <div class="bar"><div class="fill" style="width: 90%"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="name"><span>JavaScript (ES6+)</span></div>
+            <div class="bar"><div class="fill" style="width: 95%"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="name"><span>Tailwind CSS</span></div>
+            <div class="bar"><div class="fill" style="width: 92%"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="name"><span>Vue.js</span></div>
+            <div class="bar"><div class="fill" style="width: 75%"></div></div>
+          </div>
         </div>
-        <div class="skill-bar">
-          <div class="name"><span>Vite / Webpack</span></div>
-          <div class="bar"><div class="fill" style="width: 85%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>Vercel / Netlify</span></div>
-          <div class="bar"><div class="fill" style="width: 88%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>Jest / RTL</span></div>
-          <div class="bar"><div class="fill" style="width: 80%"></div></div>
-        </div>
-        <div class="skill-bar">
-          <div class="name"><span>Figma</span></div>
-          <div class="bar"><div class="fill" style="width: 75%"></div></div>
-        </div>
-      </div>
 
-      <div class="sidebar-section">
-        <h3>Methodologies</h3>
-        <div class="language-item">
-          <span>Agile / Scrum</span>
+        <div class="sidebar-section">
+          <h3>Languages</h3>
+          <div class="language-item">
+            <span>Polish</span>
+            <span class="level">Native</span>
+          </div>
+          <div class="language-item">
+            <span>English</span>
+            <span class="level">Fluent (C1)</span>
+          </div>
         </div>
-        <div class="language-item">
-          <span>Code Reviews</span>
-        </div>
-        <div class="language-item">
-          <span>CI/CD Pipelines</span>
-        </div>
-        <div class="language-item">
-          <span>TDD</span>
-        </div>
-      </div>
 
-      <div class="sidebar-section">
-        <h3>Focus Areas</h3>
-        <div class="language-item" style="background: rgba(255,255,255,0.15); padding: 6px 8px; border-radius: 6px; margin-bottom: 8px;">
-          <span style="font-weight: 600;">AI-Augmented Development</span>
+        <div class="sidebar-footer">
+          Available: Remote / Kraków<br />
+          Full-time & Part-time
         </div>
-        <div class="language-item">
-          <span>Performance Optimization</span>
-        </div>
-        <div class="language-item">
-          <span>Accessibility (a11y)</span>
-        </div>
-        <div class="language-item">
-          <span>Clean Architecture</span>
-        </div>
-      </div>
+      </aside>
 
-      <div class="sidebar-footer" style="margin-top: auto;">
-        <div style="font-size: 8px; opacity: 0.5; margin-top: 20px;">
-          References available upon request
+      <main class="main">
+        <div class="intro">
+          <h2>Hello, I'm <span>Paulina</span></h2>
+          <p>
+            Front-end Developer with 4+ years crafting modern web experiences. I specialize in React ecosystems, from
+            headless e-commerce to enterprise applications.
+            <strong style="color: var(--purple)">AI-augmented development enthusiast</strong> — I leverage cutting-edge
+            AI tools to accelerate workflows and deliver higher quality code faster.
+          </p>
         </div>
-      </div>
-    </aside>
 
-    <main class="main-page-2">
-      <div class="section">
-        <div class="section-header">
-          <h3>More Experience</h3>
-          <div class="line"></div>
+        <div class="highlights">
+          <div class="highlight-card">
+            <div class="number">4+</div>
+            <div class="label">Years Experience</div>
+          </div>
+          <div class="highlight-card">
+            <div class="number">8</div>
+            <div class="label">Projects Delivered</div>
+          </div>
+          <div class="highlight-card">
+            <div class="number">6</div>
+            <div class="label">Companies</div>
+          </div>
         </div>
-        <div class="experience-grid">
-          <div class="exp-card">
-            <div class="exp-date">2023</div>
-            <div class="exp-content">
-              <h4>QA Engineer</h4>
-              <div class="company">TriplePoint — Salesforce QA Automation</div>
-              <p>Implemented Selenium test automation with Jenkins CI/CD. Built Next.js dashboard for non-technical stakeholders to execute tests and view results.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">Selenium</span>
-                <span class="tech-tag">Jenkins</span>
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">CI/CD</span>
+
+        <div class="section">
+          <div class="section-header">
+            <h3>Experience</h3>
+            <div class="line"></div>
+          </div>
+          <div class="experience-grid">
+            <div class="exp-card">
+              <div class="exp-date">2024-now</div>
+              <div class="exp-content">
+                <h4>Front-end Developer</h4>
+                <div class="company">Proprio — Enterprise ERP Extensions</div>
+                <p>
+                  Building React & Vue modules extending NetSuite ERP functionality. Complex state management with
+                  Redux, SuiteScript integration.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">Redux</span>
+                  <span class="tech-tag">NetSuite</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="exp-card">
-            <div class="exp-date">2022-now</div>
-            <div class="exp-content">
-              <h4>Front-end Developer</h4>
-              <div class="company">Sofomo — Software Consultancy (Employer)</div>
-              <p>My employer since 2022. Sofomo assigns me to client projects (IQAir, Octopus, Proprio, FlexCare, TriplePoint). Also contributed to the corporate website.</p>
-              <div class="tech-tags">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">Next.js</span>
-                <span class="tech-tag">Vue.js</span>
-                <span class="tech-tag">TypeScript</span>
+            <div class="exp-card">
+              <div class="exp-date">2025-26</div>
+              <div class="exp-content">
+                <h4>Front-end Developer</h4>
+                <div class="company">IQAir — Headless E-commerce</div>
+                <p>
+                  Built headless Shopify storefront with Remix & Hydrogen. Implemented reusable React components,
+                  Shopify API integrations, and comprehensive unit testing.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Remix</span>
+                  <span class="tech-tag">Hydrogen</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Tailwind</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-date">2024-25</div>
+              <div class="exp-content">
+                <h4>Lead Front-end Developer</h4>
+                <div class="company">Octopus — UX/UI Learning Platform</div>
+                <p>
+                  Led front-end architecture for education platform. Built scalable component systems, improved
+                  performance, and mentored team members through code reviews.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">TypeScript</span>
+                  <span class="tech-tag">Tailwind</span>
+                  <span class="tech-tag">A11y</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="exp-card">
+              <div class="exp-date">2023-24</div>
+              <div class="exp-content">
+                <h4>Lead Front-end Developer</h4>
+                <div class="company">FlexCare — Healthcare CRM</div>
+                <p>
+                  Developed Vue.js modules for time tracking and CRM workflows deployed within NetSuite for US
+                  healthcare staffing company.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">JavaScript</span>
+                  <span class="tech-tag">NetSuite</span>
+                  <span class="tech-tag">CRM</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+    </div>
 
-      <div class="section">
-        <div class="section-header">
-          <h3>Education</h3>
-          <div class="line"></div>
-        </div>
-        <div class="edu-grid">
-          <div class="edu-card">
-            <h4>Full Stack Developer Bootcamp</h4>
-            <div class="school">Codebrainers, Kraków</div>
-            <div class="year">2020 — 2021 • 420 hours intensive</div>
-            <div class="description">JavaScript, React, Python, SQL, HTML/CSS. Hands-on project-based learning with industry mentors.</div>
+    <!-- PAGE 2 -->
+    <div class="page">
+      <aside class="sidebar sidebar-page-2">
+        <div class="sidebar-section">
+          <h3>Tools & Platforms</h3>
+          <div class="skill-bar">
+            <div class="name"><span>Git / GitHub</span></div>
+            <div class="bar"><div class="fill" style="width: 90%"></div></div>
           </div>
-          <div class="edu-card">
-            <h4>Master of Economics</h4>
-            <div class="school">Cracow University of Economics</div>
-            <div class="year">2010 — 2013</div>
-            <div class="description">HR Management and Consulting. Thesis on recruitment process optimization.</div>
+          <div class="skill-bar">
+            <div class="name"><span>Vite / Webpack</span></div>
+            <div class="bar"><div class="fill" style="width: 85%"></div></div>
           </div>
-          <div class="edu-card">
-            <h4>Bachelor of Economics</h4>
-            <div class="school">Cracow University of Economics</div>
-            <div class="year">2006 — 2010</div>
-            <div class="description">International Economic Relations with focus on finance.</div>
+          <div class="skill-bar">
+            <div class="name"><span>Vercel / Netlify</span></div>
+            <div class="bar"><div class="fill" style="width: 88%"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="name"><span>Jest / RTL</span></div>
+            <div class="bar"><div class="fill" style="width: 80%"></div></div>
+          </div>
+          <div class="skill-bar">
+            <div class="name"><span>Figma</span></div>
+            <div class="bar"><div class="fill" style="width: 75%"></div></div>
           </div>
         </div>
-      </div>
 
-      <div class="section">
-        <div class="section-header">
-          <h3>Soft Skills</h3>
-          <div class="line"></div>
+        <div class="sidebar-section">
+          <h3>Methodologies</h3>
+          <div class="language-item">
+            <span>Agile / Scrum</span>
+          </div>
+          <div class="language-item">
+            <span>Code Reviews</span>
+          </div>
+          <div class="language-item">
+            <span>CI/CD Pipelines</span>
+          </div>
+          <div class="language-item">
+            <span>TDD</span>
+          </div>
         </div>
-        <div class="soft-skills-grid">
-          <span class="soft-skill-tag">Team Leadership</span>
-          <span class="soft-skill-tag">Technical Mentoring</span>
-          <span class="soft-skill-tag">Cross-functional Collaboration</span>
-          <span class="soft-skill-tag">Problem Solving</span>
-          <span class="soft-skill-tag">Client Communication</span>
-          <span class="soft-skill-tag">Agile Teamwork</span>
+
+        <div class="sidebar-section">
+          <h3>Focus Areas</h3>
+          <div
+            class="language-item"
+            style="background: rgba(255, 255, 255, 0.15); padding: 6px 8px; border-radius: 6px; margin-bottom: 8px"
+          >
+            <span style="font-weight: 600">AI-Augmented Development</span>
+          </div>
+          <div class="language-item">
+            <span>Performance Optimization</span>
+          </div>
+          <div class="language-item">
+            <span>Accessibility (a11y)</span>
+          </div>
+          <div class="language-item">
+            <span>Clean Architecture</span>
+          </div>
         </div>
-        <p style="font-size: 9px; color: var(--gray); margin-top: 12px; line-height: 1.6;">
-          With 12+ years of prior experience in hospitality management, I bring strong leadership, communication, and stakeholder management skills to technical teams. I thrive in international, distributed environments.
-        </p>
-      </div>
 
-      <!-- RODO/GDPR Clause at bottom -->
-      <div class="rodo-clause">
-        I hereby consent to the processing of my personal data for the purpose of recruitment, in accordance with
-        Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).<br><br>
-        Wyrażam zgodę na przetwarzanie moich danych osobowych w celu rekrutacji zgodnie z Rozporządzeniem
-        Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).
-      </div>
-    </main>
-  </div>
+        <div class="sidebar-footer" style="margin-top: auto">
+          <div style="font-size: 8px; opacity: 0.5; margin-top: 20px">References available upon request</div>
+        </div>
+      </aside>
 
-  <!-- Hidden ATS Content -->
-  <div class="ats-content" aria-hidden="true">
-    <h1>Paulina Murzanska - Front-end Developer Resume</h1>
-    <h2>Professional Summary</h2>
-    <p>Front-end Developer with 4+ years of commercial experience building React and TypeScript applications. Specializing in Next.js, headless commerce (Shopify Hydrogen, Remix), and enterprise applications (NetSuite, Vue.js). Strong focus on performance optimization, scalable UI architecture, clean code, and automated testing. Experienced in international Agile teams. Available for full-time or part-time positions, remote or on-site in Kraków, Poland.</p>
+      <main class="main-page-2">
+        <div class="section">
+          <div class="section-header">
+            <h3>More Experience</h3>
+            <div class="line"></div>
+          </div>
+          <div class="experience-grid">
+            <div class="exp-card">
+              <div class="exp-date">2023</div>
+              <div class="exp-content">
+                <h4>QA Engineer</h4>
+                <div class="company">TriplePoint — Salesforce QA Automation</div>
+                <p>
+                  Implemented Selenium test automation with Jenkins CI/CD. Built Next.js dashboard for non-technical
+                  stakeholders to execute tests and view results.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">Selenium</span>
+                  <span class="tech-tag">Jenkins</span>
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">CI/CD</span>
+                </div>
+              </div>
+            </div>
 
-    <h2>Technical Skills</h2>
-    <p>React, React.js, ReactJS, TypeScript, JavaScript, ES6+, Next.js, NextJS, Vue.js, VueJS, Redux, Remix, Shopify Hydrogen, Tailwind CSS, CSS3, HTML5, CSS Modules, Styled Components, SCSS, Sass, Framer Motion, Responsive Web Design, Mobile-first Development, Single Page Applications, SPA, Progressive Web Apps, PWA, RESTful APIs, API Integration, GraphQL, Git, GitHub, Version Control, Vite, Webpack, npm, yarn, Vercel, Netlify, Jest, React Testing Library, Unit Testing, Component Testing, E2E Testing, Selenium, CI/CD, Jenkins, Agile, Scrum, Code Reviews, Technical Leadership, Performance Optimization, Web Performance, Core Web Vitals, SEO, Search Engine Optimization, Accessibility, WCAG, a11y, Cross-browser Compatibility, Component Architecture, Design Systems, Atomic Design, Storybook, Figma, State Management, Context API, React Hooks, Custom Hooks, Server-side Rendering, SSR, Static Site Generation, SSG, JAMstack, Headless CMS, Headless Commerce, NetSuite, SuiteScript, ERP Integration, CRM Integration, Salesforce, Enterprise Applications.</p>
+            <div class="exp-card">
+              <div class="exp-date">2022-now</div>
+              <div class="exp-content">
+                <h4>Front-end Developer</h4>
+                <div class="company">Sofomo — Software Consultancy (Employer)</div>
+                <p>
+                  My employer since 2022. Sofomo assigns me to client projects (IQAir, Octopus, Proprio, FlexCare,
+                  TriplePoint). Also contributed to the corporate website.
+                </p>
+                <div class="tech-tags">
+                  <span class="tech-tag">React</span>
+                  <span class="tech-tag">Next.js</span>
+                  <span class="tech-tag">Vue.js</span>
+                  <span class="tech-tag">TypeScript</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <h2>Work Experience</h2>
-    <h3>Front-end Developer at Sofomo - Software Consultancy (March 2022 - Present)</h3>
-    <p>Sofomo is my employer - a software consultancy that assigns developers to client projects. All client engagements listed below are through Sofomo. Also contributed to the corporate website development. Technologies: React, Next.js, Vue.js, TypeScript, Remix, Tailwind CSS.</p>
+        <div class="section">
+          <div class="section-header">
+            <h3>Education</h3>
+            <div class="line"></div>
+          </div>
+          <div class="edu-grid">
+            <div class="edu-card">
+              <h4>Full Stack Developer Bootcamp</h4>
+              <div class="school">Codebrainers, Kraków</div>
+              <div class="year">2020 — 2021 • 420 hours intensive</div>
+              <div class="description">
+                JavaScript, React, Python, SQL, HTML/CSS. Hands-on project-based learning with industry mentors.
+              </div>
+            </div>
+            <div class="edu-card">
+              <h4>Master of Economics</h4>
+              <div class="school">Cracow University of Economics</div>
+              <div class="year">2010 — 2013</div>
+              <div class="description">HR Management and Consulting. Thesis on recruitment process optimization.</div>
+            </div>
+            <div class="edu-card">
+              <h4>Bachelor of Economics</h4>
+              <div class="school">Cracow University of Economics</div>
+              <div class="year">2006 — 2010</div>
+              <div class="description">International Economic Relations with focus on finance.</div>
+            </div>
+          </div>
+        </div>
 
-    <h3>Front-end Developer at Proprio via Sofomo (June 2024 - Present)</h3>
-    <p>Developing React and Vue front-end modules extending NetSuite ERP functionality. Building reusable UI components with Redux state management, integrating with SuiteScript workflows. Technologies: React, Vue.js, Redux, TypeScript, JavaScript, NetSuite, SuiteScript, Tailwind CSS.</p>
+        <div class="section">
+          <div class="section-header">
+            <h3>Soft Skills</h3>
+            <div class="line"></div>
+          </div>
+          <div class="soft-skills-grid">
+            <span class="soft-skill-tag">Team Leadership</span>
+            <span class="soft-skill-tag">Technical Mentoring</span>
+            <span class="soft-skill-tag">Cross-functional Collaboration</span>
+            <span class="soft-skill-tag">Problem Solving</span>
+            <span class="soft-skill-tag">Client Communication</span>
+            <span class="soft-skill-tag">Agile Teamwork</span>
+          </div>
+          <p style="font-size: 9px; color: var(--gray); margin-top: 12px; line-height: 1.6">
+            With 12+ years of prior experience in hospitality management, I bring strong leadership, communication, and
+            stakeholder management skills to technical teams. I thrive in international, distributed environments.
+          </p>
+        </div>
 
-    <h3>Front-end Developer at IQAir via Sofomo (January 2025 - February 2026)</h3>
-    <p>Built headless Shopify storefront using React, Remix, and Hydrogen framework. Implemented Shopify API integrations, reusable React components, unit testing with React Testing Library. Technologies: React, Remix, Shopify Hydrogen, TypeScript, Tailwind CSS, Vite.</p>
+        <!-- RODO/GDPR Clause at bottom -->
+        <div class="rodo-clause">
+          I hereby consent to the processing of my personal data for the purpose of recruitment, in accordance with
+          Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 (GDPR).<br /><br />
+          Wyrażam zgodę na przetwarzanie moich danych osobowych w celu rekrutacji zgodnie z Rozporządzeniem Parlamentu
+          Europejskiego i Rady (UE) 2016/679 z dnia 27 kwietnia 2016 r. (RODO).
+        </div>
+      </main>
+    </div>
 
-    <h3>Lead Front-end Developer at Octopus via Sofomo (June 2024 - March 2025)</h3>
-    <p>Led front-end development for English learning platform. Designed scalable component architecture, built high-performance Next.js/React UI, conducted code reviews, provided technical guidance. Technologies: Next.js, React, TypeScript, Tailwind CSS, Performance Optimization, Accessibility.</p>
+    <!-- Hidden ATS Content -->
+    <div class="ats-content" aria-hidden="true">
+      <h1>Paulina Murzanska - Front-end Developer Resume</h1>
+      <h2>Professional Summary</h2>
+      <p>
+        Front-end Developer with 4+ years of commercial experience building React and TypeScript applications.
+        Specializing in Next.js, headless commerce (Shopify Hydrogen, Remix), and enterprise applications (NetSuite,
+        Vue.js). Strong focus on performance optimization, scalable UI architecture, clean code, and automated testing.
+        Experienced in international Agile teams. Available for full-time or part-time positions, remote or on-site in
+        Kraków, Poland.
+      </p>
 
-    <h3>Lead Front-end Developer at FlexCare via Sofomo (August 2023 - June 2024)</h3>
-    <p>Developed Vue.js modules for time tracking and CRM workflows in NetSuite for US healthcare staffing. Technologies: Vue.js, JavaScript, NetSuite, CRM Integration, HTML, CSS.</p>
+      <h2>Technical Skills</h2>
+      <p>
+        React, React.js, ReactJS, TypeScript, JavaScript, ES6+, Next.js, NextJS, Vue.js, VueJS, Redux, Remix, Shopify
+        Hydrogen, Tailwind CSS, CSS3, HTML5, CSS Modules, Styled Components, SCSS, Sass, Framer Motion, Responsive Web
+        Design, Mobile-first Development, Single Page Applications, SPA, Progressive Web Apps, PWA, RESTful APIs, API
+        Integration, GraphQL, Git, GitHub, Version Control, Vite, Webpack, npm, yarn, Vercel, Netlify, Jest, React
+        Testing Library, Unit Testing, Component Testing, E2E Testing, Selenium, CI/CD, Jenkins, Agile, Scrum, Code
+        Reviews, Technical Leadership, Performance Optimization, Web Performance, Core Web Vitals, SEO, Search Engine
+        Optimization, Accessibility, WCAG, a11y, Cross-browser Compatibility, Component Architecture, Design Systems,
+        Atomic Design, Storybook, Figma, State Management, Context API, React Hooks, Custom Hooks, Server-side
+        Rendering, SSR, Static Site Generation, SSG, JAMstack, Headless CMS, Headless Commerce, NetSuite, SuiteScript,
+        ERP Integration, CRM Integration, Salesforce, Enterprise Applications.
+      </p>
 
-    <h3>QA Engineer at TriplePoint via Sofomo (January 2023 - August 2023)</h3>
-    <p>Implemented Selenium QA automation with Jenkins CI/CD, built Next.js test execution dashboard. Technologies: Selenium, Java, Jenkins, Salesforce, Next.js, CI/CD, Test Automation.</p>
+      <h2>Work Experience</h2>
+      <h3>Front-end Developer at Sofomo - Software Consultancy (March 2022 - Present)</h3>
+      <p>
+        Sofomo is my employer - a software consultancy that assigns developers to client projects. All client
+        engagements listed below are through Sofomo. Also contributed to the corporate website development.
+        Technologies: React, Next.js, Vue.js, TypeScript, Remix, Tailwind CSS.
+      </p>
 
-    <h2>Education</h2>
-    <p>Full Stack Developer Bootcamp, Codebrainers, 2020-2021, 420-hour intensive course covering JavaScript, React, Python, SQL.</p>
-    <p>Master of Economics in HR Management and Consulting, Cracow University of Economics, 2010-2013.</p>
-    <p>Bachelor of Economics in International Economic Relations, Cracow University of Economics, 2006-2010.</p>
+      <h3>Front-end Developer at Proprio via Sofomo (June 2024 - Present)</h3>
+      <p>
+        Developing React and Vue front-end modules extending NetSuite ERP functionality. Building reusable UI components
+        with Redux state management, integrating with SuiteScript workflows. Technologies: React, Vue.js, Redux,
+        TypeScript, JavaScript, NetSuite, SuiteScript, Tailwind CSS.
+      </p>
 
-    <h2>Languages</h2>
-    <p>Polish (Native), English (Fluent, C1 level)</p>
+      <h3>Front-end Developer at IQAir via Sofomo (January 2025 - February 2026)</h3>
+      <p>
+        Built headless Shopify storefront using React, Remix, and Hydrogen framework. Implemented Shopify API
+        integrations, reusable React components, unit testing with React Testing Library. Technologies: React, Remix,
+        Shopify Hydrogen, TypeScript, Tailwind CSS, Vite.
+      </p>
 
-    <h2>Contact Information</h2>
-    <p>Email: p.murzanska@gmail.com, Phone: +48 514 132 314, Location: Kraków, Poland, Website: paulina-murzanska.dev, LinkedIn: linkedin.com/in/paulina-murzanska, GitHub: github.com/PaulinaMurzanska</p>
+      <h3>Lead Front-end Developer at Octopus via Sofomo (June 2024 - March 2025)</h3>
+      <p>
+        Led front-end development for English learning platform. Designed scalable component architecture, built
+        high-performance Next.js/React UI, conducted code reviews, provided technical guidance. Technologies: Next.js,
+        React, TypeScript, Tailwind CSS, Performance Optimization, Accessibility.
+      </p>
 
-    <h2>Additional Keywords</h2>
-    <p>Mid-level Developer, 4 years experience, Kraków, Krakow, Poland, Remote Work, Full-time, Part-time, Contract, B2B, Front-end Developer, Frontend Developer, React Developer, Web Developer, Software Engineer, UI Developer, Senior Developer, Mid Developer, JavaScript Developer, TypeScript Developer.</p>
-  </div>
-</body>
+      <h3>Lead Front-end Developer at FlexCare via Sofomo (August 2023 - June 2024)</h3>
+      <p>
+        Developed Vue.js modules for time tracking and CRM workflows in NetSuite for US healthcare staffing.
+        Technologies: Vue.js, JavaScript, NetSuite, CRM Integration, HTML, CSS.
+      </p>
+
+      <h3>QA Engineer at TriplePoint via Sofomo (January 2023 - August 2023)</h3>
+      <p>
+        Implemented Selenium QA automation with Jenkins CI/CD, built Next.js test execution dashboard. Technologies:
+        Selenium, Java, Jenkins, Salesforce, Next.js, CI/CD, Test Automation.
+      </p>
+
+      <h2>Education</h2>
+      <p>
+        Full Stack Developer Bootcamp, Codebrainers, 2020-2021, 420-hour intensive course covering JavaScript, React,
+        Python, SQL.
+      </p>
+      <p>Master of Economics in HR Management and Consulting, Cracow University of Economics, 2010-2013.</p>
+      <p>Bachelor of Economics in International Economic Relations, Cracow University of Economics, 2006-2010.</p>
+
+      <h2>Languages</h2>
+      <p>Polish (Native), English (Fluent, C1 level)</p>
+
+      <h2>Contact Information</h2>
+      <p>
+        Email: p.murzanska@gmail.com, Phone: +48 514 132 314, Location: Kraków, Poland, Website: paulina-murzanska.dev,
+        LinkedIn: linkedin.com/in/paulina-murzanska, GitHub: github.com/PaulinaMurzanska
+      </p>
+
+      <h2>Additional Keywords</h2>
+      <p>
+        Mid-level Developer, 4 years experience, Kraków, Krakow, Poland, Remote Work, Full-time, Part-time, Contract,
+        B2B, Front-end Developer, Frontend Developer, React Developer, Web Developer, Software Engineer, UI Developer,
+        Senior Developer, Mid Developer, JavaScript Developer, TypeScript Developer.
+      </p>
+    </div>
+  </body>
 </html>
